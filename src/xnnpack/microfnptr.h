@@ -2083,3 +2083,7 @@ typedef size_t (*xnn_init_x24_transpose_params_fn)(
 typedef size_t (*xnn_init_x32_transpose_params_fn)(
   union xnn_x32_transpose_params params[XNN_MIN_ELEMENTS(1)]
 );
+
+typedef size_t (*xnn_init_x64_transpose_params_fn)(
+  union xnn_x64_transpose_params params[XNN_MIN_ELEMENTS(1)]
+);
