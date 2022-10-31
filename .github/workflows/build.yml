@@ -84,6 +84,24 @@ jobs:
         run: scripts/build-windows.sh
         shell: bash  # Specify bash so we can reuse the build script on Windows (runs on Git bash)
         working-directory: ${{ github.workspace }}
+  cmake-windows-msvc:
+    strategy:
+      matrix:
+        arch:
+          - amd64
+          - amd64_x86
+          - amd64_arm64
+    runs-on: windows-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: ${{ matrix.arch }}
+      - name: Configure and build
+        run: scripts/build-windows-msvc.cmd
+        shell: cmd
+        working-directory: ${{ github.workspace }}
   cmake-android:
     strategy:
       matrix:
