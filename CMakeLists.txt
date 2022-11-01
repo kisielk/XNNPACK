@@ -9479,6 +9479,11 @@ IF(XNNPACK_BUILD_TESTS)
   TARGET_INCLUDE_DIRECTORIES(packing-test PRIVATE include src)
   TARGET_LINK_LIBRARIES(packing-test PRIVATE fp16 gtest gtest_main pthreadpool)
   TARGET_LINK_LIBRARIES(packing-test PRIVATE packing)
+
+  ADD_EXECUTABLE(indirection-test test/indirection.cc)
+  TARGET_INCLUDE_DIRECTORIES(indirection-test PRIVATE include src)
+  TARGET_LINK_LIBRARIES(indirection-test PRIVATE fp16 gtest gtest_main pthreadpool)
+  TARGET_LINK_LIBRARIES(indirection-test PRIVATE indirection)
 ENDIF()
 
 # ---[ XNNPACK microbenchmarks
